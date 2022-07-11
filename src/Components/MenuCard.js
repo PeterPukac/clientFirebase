@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 const MenuCard = (props) => {
     const object = props.object;
-    
+
     return (
         <motion.div whileHover={{ scale: 1.1}}>
-            <a href={`/list/${object.linkTo}`} >
-                <div className="menuCard" >
+            <a href={`/list/${object.linkTo}`}>
+                <div className="menuCard">
                     <div className="card" style={{ backgroundColor: object.mainColor }} >
                         <div className="card-body">
                             <h2 className="display-5 whiteHeading">{object.name}</h2>
@@ -16,7 +16,7 @@ const MenuCard = (props) => {
                         </div>
                     </div>
                 </div>  
-                </a>             
+            </a>
         </motion.div>
     );
 }

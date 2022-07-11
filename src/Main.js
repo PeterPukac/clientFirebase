@@ -1,5 +1,5 @@
 import './App.css';
-import ManuCard from './MenuCard';
+import ManuCard from './Components/MenuCard';
 import { motion } from 'framer-motion';
 function Main() {
 
@@ -17,7 +17,7 @@ function Main() {
             <img src="./icons/eko.svg"/>,linkTo:"ekonomky"
         },
         {
-            mainColor: "#6c757d", name: "Brigádnici", paragraph: "Prihlasovacie veci k neviem k čomu ale sme tu :D", secondaryColor: "#dc3545", icon:
+            mainColor: "#343a40", name: "Brigádnici", paragraph: "Prihlasovacie veci k neviem k čomu ale sme tu :D", secondaryColor: "#dc3545", icon:
             <img src="./icons/brig.svg"/>,linkTo:"brigadnici"
         }
 
@@ -37,7 +37,7 @@ function Main() {
                     })}
                 </div>
             </div>
-        </motion.div >
+        </motion.div>
     );
 }
 

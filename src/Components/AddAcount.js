@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-function AddAcount() {
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import {addDoc} from '@firebase/firestore'
+
+function AddAcount(props) {
+  const {acounts} = props
   const [name, setName] = useState(' ');
   const [password, setPassword] = useState(' ');
   const [group, setGroup] = useState('plc');
   const [text, setText] = useState(' ');
 
-  const handleSubmit = async (e) => {
-    const customer = { name, password, group,text };
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(customer)
-    };
-    fetch("/accounts/add", options);
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const images =[]
+    const data = {
+      name: name,
+      password: password,
+      group: group,
+      text: text,
+      images:images
+    }
+    addDoc(acounts,data).catch(error => console.log(error.message))
+    e.target.reset()
   }
 
   return (
@@ -41,11 +48,9 @@ function AddAcount() {
                   <input required type="password" autoComplete="on" className="form-control" onChange={(e) => setPassword(e.target.value)} />
                   <label>Heslo</label>
                 </div>
-
                 <div className="form">
                   <label>Popis</label>
                   <textarea className="form-control" rows="3" onChange={(e) => setText(e.target.value)} ></textarea>
-                  
                 </div>
                 <label>Potvrďte tlačidlom pridať</label>
                 <button className="w-100 btn btn-lg btn-danger" type="submit">Pridať na server</button>
